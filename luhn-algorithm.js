@@ -16,10 +16,11 @@ function validCard (num) {
 
     //MAKE THE DOUBLE DIGIT NUMBERS SINGLE DIGIT 
     let joinDoubleArr2 = doubleArr2.join("").split("").map(x => parseInt(x)) 
+
     // THE SUM OF INDIVIDUAL DIGITS IN doublearr2
-    let sum1 = 0
+    let sum = 0
     for (let i = 0; i < joinDoubleArr2.length; i++) {
-        sum1 += joinDoubleArr2[i]
+        sum += joinDoubleArr2[i]
     }
 
     //======WORK ON NUMBERS THAT WERE NOT IN arr2==========
@@ -27,14 +28,15 @@ function validCard (num) {
         return i % 2 === 0
     })
 
-    let sum2 = 0
+    //SUM OF NUMBERS IN arr3
+    let sum1 = 0
     for (let i = 0; i < arr3.length; i++) {
-        sum2 += arr3[i]
+        sum1 += arr3[i]
     }
+    //=========ADDING THEM ALL TOGETHER AND VALIDATING STEP==========
+    let sumAll = sum + sum1
 
-    let sum = sum1 + sum2
-
-    if(sum % 10 === 0) {
+    if(sumAll % 10 === 0) {
         return true
     } else {
         return false
